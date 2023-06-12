@@ -4,12 +4,12 @@ from .models import *
 
 # Create your views here.
 def home(request):
-    reply = ""
+    reply = "Welcome to my Portfolio site. I am a CS student at Weber State University in my final semester."
 
     return HttpResponse(reply)
 
 def contact(request):
-    reply = ""
+    reply = "Contact: Alexanderlustig@mail.weber.edu"
 
     return HttpResponse(reply)
 

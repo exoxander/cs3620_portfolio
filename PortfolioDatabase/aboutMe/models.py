@@ -4,7 +4,7 @@ from django.db import models
 class Hobby(models.Model):
 
     def __str__(self):
-        return self.name + "\n" + self.desc + "\n"
+        return self.name + ": " + self.desc + " | "
 
     name = models.CharField(max_length=200)
     desc = models.CharField(max_length=200)
@@ -12,7 +12,7 @@ class Hobby(models.Model):
 class Portfolio(models.Model):
 
     def __str__(self):
-        return self.name + "\n" + self.desc + "\n"
+        return self.name + ": " + self.desc + " | "
 
     name = models.CharField(max_length=200)
     desc = models.CharField(max_length=200)
