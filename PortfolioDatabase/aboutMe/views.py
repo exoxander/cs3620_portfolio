@@ -9,9 +9,7 @@ def home(request):
     return render(request, "PortfolioDatabase/home.html")
 
 def contact(request):
-    reply = "Contact: Alexanderlustig@mail.weber.edu"
-
-    return HttpResponse(reply)
+    return render(request, "PortfolioDatabase/contact.html")
 
 def hobbies(request):
     item_list = Hobby.objects.all()

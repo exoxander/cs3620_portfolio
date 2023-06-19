@@ -1,3 +1,4 @@
+{% extends "PortfolioDatabase/navbar.html" %}
 <!DOCTYPE html>
 
 <html lang="en">
@@ -7,15 +8,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 </head>
 <body>
-    <h1>Portfolio item Details:</h1>
-    <div>
-        <a href="{% url 'portfolio' %}">back</a>
-    </div>
-    <hr />
-    <div>
-        <h3>{{ item.name }}</h3>
+    {% block body %}
+    <div class="container">
+        <h1>Portfolio item Details:</h1>
+        <div>
+            <a href="{% url 'portfolio' %}">back</a>
+        </div>
         <hr />
-        {{ item.desc}}
+        <div>
+            <h3>{{ item.name }}</h3>
+            <hr />
+            {{ item.desc}}
+        </div>
+        {% endblock %}
     </div>
 </body>
 </html>
