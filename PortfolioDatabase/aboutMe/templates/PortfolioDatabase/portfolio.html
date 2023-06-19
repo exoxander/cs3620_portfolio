@@ -9,19 +9,21 @@
 </head>
 <body>
     {% block body %}
-    <h1>prtofilio</h1>
-    <ul>
-        {% for item in item_list %}
-        <li>
-            <div>
-                <a href="{% url 'portfolioDetails' item.id %}">{{ item.name }}</a>
+    <div class="container">
+        <h1>Portfolio</h1>
+        <ul class="list-group">
+            {% for item in item_list %}
+            <li class="list-group-item">
+                <div>
+                    <a href="{% url 'portfolioDetails' item.id %}" class="btn btn-secondary">{{ item.name }}</a>
+                    <br />
+                    {{ item.desc }}
+                </div>
                 <br />
-                {{ item.desc}}
-            </div>
-            <br />
-        </li>
-        {% endfor %}
-    </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
     {% endblock %}
 </body>
 </html>

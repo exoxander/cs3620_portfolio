@@ -11,15 +11,19 @@
     {% block body %}
     <div class="container">
         <h1>Hobby Details:</h1>
-    <div>
-        <a href="{% url 'hobbies' %}">back</a>
+        <div>
+            <a href="{% url 'hobbies' %}" class="btn btn-dark">back</a>
+        </div>
+        <hr />
+        <div>
+            {{ item.name }}
+            <br />
+            {{ item.desc}}
+        </div>
     </div>
     <hr />
-    <div>
-        {{ item.name }}
-        <br />
-        {{ item.desc}}
-    </div>
+    <div class="d-flex justify-content-around">
+        <img src="{{ item.img }}" alt="item image" class="w-50 rounded" />
     </div>
     {% endblock %}
 </body>

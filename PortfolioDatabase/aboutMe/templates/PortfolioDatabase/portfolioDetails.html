@@ -12,15 +12,19 @@
     <div class="container">
         <h1>Portfolio item Details:</h1>
         <div>
-            <a href="{% url 'portfolio' %}">back</a>
+            <a href="{% url 'portfolio' %}" class="btn btn-dark">back</a>
         </div>
         <hr />
-        <div>
+        <div class="">
             <h3>{{ item.name }}</h3>
             <hr />
             {{ item.desc}}
         </div>
-        {% endblock %}
     </div>
+    <hr />
+    <div class="d-flex justify-content-around">
+        <img src="{{ item.img }}" alt="item image" class="w-50 rounded" />
+    </div>
+    {% endblock %}
 </body>
 </html>
