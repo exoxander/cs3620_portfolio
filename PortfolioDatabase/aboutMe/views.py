@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
+from django.template import loader
 
 # Create your views here.
 def home(request):
-    reply = "Welcome to my Portfolio site. I am a CS student at Weber State University in my final semester."
-
-    return HttpResponse(reply)
+    
+    return render(request, "PortfolioDatabase/home.html")
 
 def contact(request):
     reply = "Contact: Alexanderlustig@mail.weber.edu"
@@ -14,11 +14,21 @@ def contact(request):
     return HttpResponse(reply)
 
 def hobbies(request):
-    reply = Hobby.objects.all()
-
-    return HttpResponse(reply)
+    item_list = Hobby.objects.all()
+    context = {"item_list":item_list,}
+    return render(request, "PortfolioDatabase/hobbies.html", context)
 
 def portfolio(request):
-    reply = Portfolio.objects.all()
+    item_list = Portfolio.objects.all()
+    context = {"item_list":item_list,}
+    return render(request, "PortfolioDatabase/portfolio.html",context)
 
-    return HttpResponse(reply)
+def hobbyDetails(request, item_id):
+    item = Hobby.objects.get(pk=item_id)
+    context = {"item":item,}
+    return render(request, "PortfolioDatabase/hobbyDetails.html", context)
+
+def portfolioDetails(request, item_id):
+    item = Portfolio.objects.get(pk=item_id)
+    context = {"item":item,}
+    return render(request, "PortfolioDatabase/portfolioDetails.html", context)
