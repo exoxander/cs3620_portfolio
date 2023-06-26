@@ -12,8 +12,21 @@
             <a href="{% url 'contact' %}" class="btn btn-dark">Contact</a>
             <a href="{% url 'hobbies' %}" class="btn btn-dark">Hobbies</a>
             <a href="{% url 'portfolio' %}" class="btn btn-dark">Portfolio</a>
+
+            {% if user.is_authenticated %}
+             <a href="{% url 'logout' %}" class="btn btn-dark">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-dark">Login</a>
+            {% endif %}
         </div>
     </nav>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
     {% block body %}
 
     {% endblock %}

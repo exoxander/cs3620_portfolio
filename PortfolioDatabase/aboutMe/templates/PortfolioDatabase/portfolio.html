@@ -12,18 +12,31 @@
     <div class="container">
         <h1>Portfolio</h1>
         <ul class="list-group">
+
+            {% if user.is_authenticated %}
+            <li class="list-group-item">
+                <a href="{% url 'upsertItem' 0 %}" class="btn btn-success">Create</a>
+            </li>
+            {% endif %}
+
             {% for item in item_list %}
             <li class="list-group-item">
                 <div>
-                    <a href="{% url 'portfolioDetails' item.id %}" class="btn btn-secondary">{{ item.name }}</a>
+                    <a href="{% url 'portfolioDetails' item.id %}" class="btn btn-info">{{ item.name }}</a>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'upsertItem' item.id %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'deleteItem' item.id %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
                     <br />
                     {{ item.desc }}
                 </div>
                 <br />
             </li>
             {% endfor %}
+
         </ul>
     </div>
     {% endblock %}
+
 </body>
 </html>
